@@ -1,0 +1,69 @@
+{
+  "score": 3.0,
+  "tests": [
+    {
+      "max_score": 1.0,
+      "name": "reward_model",
+      "output": "pair_accuracy=0.7852 threshold=0.7400",
+      "score": 1.0,
+      "status": "passed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "dpo",
+      "output": "win_rate=0.6383 threshold=0.6500 usable=47 errors=5 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-5.4 in organization org-Z5Q0IF6tjmG1GBo7Ytm6jg8E on requests per min (RPM): Limit 500, Used 500, R",
+      "score": 0.0,
+      "status": "failed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "ipo",
+      "output": "win_rate=0.7667 threshold=0.6000 usable=30 errors=5 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-5.4 in organization org-Z5Q0IF6tjmG1GBo7Ytm6jg8E on requests per min (RPM): Limit 500, Used 500, R",
+      "score": 1.0,
+      "status": "passed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "aot",
+      "output": "win_rate=0.6667 threshold=0.6500 usable=42 errors=4 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-5.4 in organization org-Z5Q0IF6tjmG1GBo7Ytm6jg8E on tokens per min (TPM): Limit 500000, Used 50000",
+      "score": 1.0,
+      "status": "passed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "grpo",
+      "output": "win_rate=0.5312 threshold=0.6000 usable=32 errors=5 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, read the doc",
+      "score": 0.0,
+      "status": "failed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "drgrpo",
+      "output": "win_rate=0.3333 threshold=0.6000 usable=21 errors=5 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-5.4 in organization org-Z5Q0IF6tjmG1GBo7Ytm6jg8E on tokens per min (TPM): Limit 500000, Used 49960",
+      "score": 0.0,
+      "status": "failed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "gspo",
+      "output": "win_rate=0.5185 threshold=0.6000 usable=27 errors=5 first_error=RuntimeError: HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-5.4 in organization org-Z5Q0IF6tjmG1GBo7Ytm6jg8E on tokens per min (TPM): Limit 500000, Used 50000",
+      "score": 0.0,
+      "status": "failed",
+      "visibility": "visible"
+    },
+    {
+      "max_score": 1.0,
+      "name": "part2_best",
+      "output": "Missing part2/offline_best.jsonl and part2/online_best.jsonl",
+      "score": 0.0,
+      "status": "failed",
+      "visibility": "visible"
+    }
+  ]
+}
