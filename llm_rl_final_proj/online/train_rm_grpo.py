@@ -217,12 +217,21 @@ def _compute_group_advantages(
     group_rewards = rewards[:rewards_len].reshape(num_groups, group_size)
     group_mean = group_rewards.mean(dim=1, keepdim=True)
 
+    # rank-only baseline
+    rank_wtn_group = group_rewards.argsort(dim = 1).argsort(dim = 1).float()
+    group_rewards_normed = rank_wtn_group * 2.0 / (group_size - 1) - 1.0
+ 
+
+    #leave one out baseline
+    group_sum = group_rewards_normed.sum(dim=1, keepdim=True)
+    leave_one_out = (group_sum - group_rewards_normed)  / (group_size - 1)
+
     if divide_by_std:
-        group_std = group_rewards.std(dim=1, unbiased=False, keepdim=True)
-        group_adv = (group_rewards - group_mean) / (group_std + eps)
+        group_std = group_rewards_normed.std(dim=1, unbiased=False, keepdim=True)
+        group_adv = (group_rewards_normed - leave_one_out) / (group_std + eps)
         group_adv = torch.where(group_std < eps, torch.zeros_like(group_adv), group_adv)
     else:
-        group_adv = group_rewards - group_mean
+        group_adv = group_rewards_normed - leave_one_out
 
     adv = torch.zeros_like(rewards)
     adv[:rewards_len] = group_adv.reshape(-1)
