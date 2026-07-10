@@ -207,6 +207,14 @@ def _compute_group_advantages(
     *,
     divide_by_std: bool,
 ) -> torch.Tensor:
+    """
+    Rank-based Leave-One-Out advantage estimation.
+    
+    Converts absolute reward scores to normalized intra-group ranks in [-1, 1],
+    then subtracts a leave-one-out baseline to reduce variance without bias
+    from self-inclusion. Prevents gradient explosion from reward model outliers.
+    """
+    
     if group_size <= 1:
         return torch.zeros_like(rewards)
 
@@ -215,7 +223,6 @@ def _compute_group_advantages(
     num_groups = N // group_size
     rewards_len = num_groups * group_size
     group_rewards = rewards[:rewards_len].reshape(num_groups, group_size)
-    group_mean = group_rewards.mean(dim=1, keepdim=True)
 
     # rank-only baseline
     rank_wtn_group = group_rewards.argsort(dim = 1).argsort(dim = 1).float()
