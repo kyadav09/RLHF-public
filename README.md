@@ -5,6 +5,12 @@
 **Paper:** [Final Report (PDF)](RLHF_Final_Report.pdf)
 
 ---
+> **Note:** This project was completed as part of CS 185/285A at UC Berkeley. 
+> Course infrastructure and starter code belong to the course staff. 
+> The implementations in `offline/`, `online/`, `reward_model/`, and `rl/` 
+> are our own work. This repository is shared for portfolio purposes only — 
+> please do not copy for academic submission.
+---
 
 ## Overview
 
